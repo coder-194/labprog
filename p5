@@ -1,0 +1,35 @@
+p5
+
+java -version
+
+Download and install Maven from: https://maven.apache.org/download.cgi
+->apache-maven-3.9.6-bin.zip
+
+1. Extract the zip file to a location like:
+C:\Program Files\Apache\Maven\apache-maven-3.9.6
+
+3. Open Command Prompt (Run as Administrator) and execute the following :
+> setx MAVEN_HOME "C:\Program Files\Apache\Maven\apache-maven-3.9.6" /M
+> setx PATH "%PATH%;C:\Program Files\Apache\Maven\apache-maven-3.9.6\bin" /M
+
+4. Restart your Command Prompt and check:
+-> Check whether is Maven is properly installed
+
+5. Open Command Prompt and execute the following :
+> mvn -v
+
+mvn archetype:generate -DgroupId=com.example -DartifactId=demo-project -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+Go to the demo-project folder and understand the usage of pom.xml file.
+<dependency>
+<groupId>com.google.code.gson</groupId>
+<artifactId>gson</artifactId>
+<version>2.10.1</version>
+</dependency>
+
+> cd demo-project
+> mvn compile
+> mvn test
+> mvn package
+
+java -cp target/demo-project-1.0-SNAPSHOT.jar com.example.App
