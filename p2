@@ -1,0 +1,91 @@
+p2
+
+Step 1: Install Docker on Windows
+1. Download Docker Desktop for Windows from the official Docker website.
+2. Run the installer and follow the on-screen instructions.
+3. Once installed, open Docker Desktop and ensure it is running correctly.
+
+Step 2: Explore Docker commands:
+
+docker --version
+docker info
+docker ps
+docker ps --a
+docker images
+docker pull Ubuntu
+docker run -it Ubuntu
+docker stop <container_id>
+docker rm <container_id>
+docker rmi <image_id>
+docker build -t <image_name> .
+
+Step3: Create Docker Containers Using Various Operating System Images
+
+Use Ubuntu Image
+docker pull Ubuntu
+docker run -it Ubuntu
+exit
+
+Use Alpine Image (Lightweight OS)
+docker pull alpine
+docker run -it alpine
+exit
+
+Run Containers with Other Operating Systems
+docker pull centos
+docker pull debian
+docker pull fedora
+
+Step4: Deploy Containerized Applications Using Docker
+
+1. Create a Python web app (app.py): Create a file named app.py with the following content:\
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, Docker!'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+
+2.Create a Dockerfile: Create a Dockerfile to containerize this Python application:
+
+FROM python:3.8-slim
+WORKDIR /app
+COPY app.py .
+RUN pip install flask
+EXPOSE 5000
+CMD ["python", "app.py"]
+
+3. Build the Docker image:
+docker build -t python-flask-app .
+
+4. Run the Docker container:
+docker run -p 5000:5000 python-flask-app
+
+5. Access the application: Open your browser and go to         
+ http://localhost:5000       
+ You should see "Hello, Docker!" displayed.
+
+Step 5: Push Docker Image to Docker Hub
+
+1. Create a Docker Hub Account: Go to Docker Hub and sign up for an account.
+
+2. Login to Docker Hub
+Use the following command to log in to Docker Hub:
+  docker login
+Enter your Docker Hub credentials.
+
+3. Tag and Push the Image
+
+Tag the image you want to upload:
+docker tag python-flask-app <your_dockerhub_username>/python-flask-app
+
+Push the image to Docker Hub:
+docker push <your_dockerhub_username>/python-flask-app
+
+4. Pull Image from Docker Hub
+docker pull <your_dockerhub_username>/python-flask-app
