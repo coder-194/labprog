@@ -1,0 +1,70 @@
+p1
+
+Step 1: Download and Install Git
+
+Step 2: Verify Installation
+git --version
+
+3. Configuring Git (One-Time Setup)
+
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+git config --list
+
+4. Creating Your First Git Repository
+
+Step 1: Initialize Git in a Folder
+1. Open the terminal (or Git Bash on Windows).
+2. Navigate to your project folder:
+3. cd path/to/your/folder
+4. Run the following command:
+5. git init
+
+5. Making Your First Commit
+
+git status
+git add filename.txt
+git add .
+git commit -m "First commit - added new files"
+
+6. Connecting Git to GitHub (Optional, for Online Backup & Collaboration)
+
+Step 1: Create a GitHub Account
+ Go to GitHub and sign up.
+
+Step 2: Create a Repository on GitHub
+1. Click the "+" button in the top-right corner.
+2. Select "New repository".
+3. Name it (e.g., "my-first-repo") and click Create repository.
+
+Step 3: Link Your Local Repository to GitHub
+1. Copy the GitHub repository link (it looks like https://github.com/your-username/repository.git).
+2. Run the following command in your terminal:
+
+3. git remote add origin https://github.com/your-username/repository.git
+4. Push your local commits to GitHub:
+
+5. git push -u origin main
+If you see an error about "main" not existing, rename your branch first:
+git branch -M main
+git push -u origin main
+
+7. Working with Branches
+
+git branch new-feature
+git checkout new-feature
+git checkout main
+git merge new-feature
+
+8. Collaborating with Others on GitHub
+
+git pull origin main
+git push origin main
+
+9. Undoing Mistakes in Git
+
+Undo the Last Commit (Without Losing Changes)
+git reset --soft HEAD~1
+
+Remove the Last Commit Completely
+git reset --hard HEAD~1
